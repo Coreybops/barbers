@@ -1,0 +1,68 @@
+[
+  {
+    "content": "Create comprehensive calendar component types and interfaces",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Implement calendar views (monthly, weekly, daily) with appointment display",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Add drag-and-drop appointment rescheduling functionality",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Create appointment creation and editing modal components",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Implement calendar navigation and time controls",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Add barber filtering and multi-barber resource view",
+    "status": "completed",
+    "priority": "medium",
+    "id": "6"
+  },
+  {
+    "content": "Implement backend calendar API endpoints",
+    "status": "completed",
+    "priority": "high",
+    "id": "7"
+  },
+  {
+    "content": "Add time zone handling and availability checking",
+    "status": "completed",
+    "priority": "medium",
+    "id": "8"
+  },
+  {
+    "content": "Create calendar service layer for API integration",
+    "status": "completed",
+    "priority": "high",
+    "id": "9"
+  },
+  {
+    "content": "Implement responsive mobile design with touch support",
+    "status": "completed",
+    "priority": "medium",
+    "id": "10"
+  },
+  {
+    "content": "Add real-time updates and calendar export functionality",
+    "status": "completed",
+    "priority": "low",
+    "id": "11"
+  }
+]

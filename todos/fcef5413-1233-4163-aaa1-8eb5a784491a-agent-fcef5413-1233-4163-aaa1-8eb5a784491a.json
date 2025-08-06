@@ -1,0 +1,14 @@
+[
+  {
+    "content": "Remove risk level pre-population from textarea",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Keep auto-population in copy functionality as is",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  }
+]

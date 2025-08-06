@@ -1,0 +1,98 @@
+[
+  {
+    "content": "Enhance database schema with guest booking and waitlist support",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Create guest booking backend API endpoints",
+    "status": "in_progress",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Implement real-time availability checking system",
+    "status": "pending",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Build public booking interface with barbershop search",
+    "status": "pending",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Create multi-step booking wizard component",
+    "status": "pending",
+    "priority": "high",
+    "id": "5"
+  },
+  {
+    "content": "Implement service selection with pricing display",
+    "status": "pending",
+    "priority": "medium",
+    "id": "6"
+  },
+  {
+    "content": "Build barber selection interface with availability",
+    "status": "pending",
+    "priority": "medium",
+    "id": "7"
+  },
+  {
+    "content": "Create dynamic time slot selection with real-time updates",
+    "status": "pending",
+    "priority": "high",
+    "id": "8"
+  },
+  {
+    "content": "Implement customer information form for guest and registered users",
+    "status": "pending",
+    "priority": "medium",
+    "id": "9"
+  },
+  {
+    "content": "Build appointment confirmation and booking summary",
+    "status": "pending",
+    "priority": "medium",
+    "id": "10"
+  },
+  {
+    "content": "Create waitlist functionality for popular time slots",
+    "status": "pending",
+    "priority": "medium",
+    "id": "11"
+  },
+  {
+    "content": "Implement booking modification system (reschedule/cancel)",
+    "status": "pending",
+    "priority": "medium",
+    "id": "12"
+  },
+  {
+    "content": "Add email/SMS notification system",
+    "status": "pending",
+    "priority": "medium",
+    "id": "13"
+  },
+  {
+    "content": "Create customer booking history and management interface",
+    "status": "pending",
+    "priority": "medium",
+    "id": "14"
+  },
+  {
+    "content": "Implement recurring appointment booking",
+    "status": "pending",
+    "priority": "low",
+    "id": "15"
+  },
+  {
+    "content": "Add progressive web app features and mobile optimization",
+    "status": "pending",
+    "priority": "low",
+    "id": "16"
+  }
+]

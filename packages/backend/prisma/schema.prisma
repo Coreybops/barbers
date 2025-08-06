@@ -1,0 +1,356 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  CUSTOMER
+  BARBER
+  SHOP_OWNER
+  ADMIN
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+model User {
+  id              String   @id @default(cuid())
+  email           String   @unique
+  password        String
+  firstName       String
+  lastName        String
+  phone           String?
+  avatar          String?
+  role            UserRole @default(CUSTOMER)
+  emailVerified   Boolean  @default(false)
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  ownedBarbershops Barbershop[] @relation("BarbershopOwner")
+  barberProfile    Barber?
+  appointments     Appointment[]
+  reviews          Review[]
+  notifications    Notification[]
+  waitlistEntries  WaitlistEntry[]
+  bookingPreferences BookingPreferences?
+
+  @@map("users")
+}
+
+model Barbershop {
+  id            String   @id @default(cuid())
+  name          String
+  description   String?
+  address       String
+  city          String
+  state         String
+  zipCode       String
+  phone         String
+  email         String?
+  website       String?
+  images        String[]
+  latitude      Float?
+  longitude     Float?
+  rating        Float    @default(0)
+  reviewCount   Int      @default(0)
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Business hours (JSON format)
+  businessHours Json?
+
+  // Relations
+  owner        User      @relation("BarbershopOwner", fields: [ownerId], references: [id])
+  ownerId      String
+  barbers      Barber[]
+  services     Service[]
+  appointments Appointment[]
+  reviews      Review[]
+  waitlistEntries WaitlistEntry[]
+
+  @@map("barbershops")
+}
+
+model Barber {
+  id              String   @id @default(cuid())
+  bio             String?
+  specialties     String[]
+  experience      Int? // years of experience
+  avatar          String?
+  rating          Float    @default(0)
+  reviewCount     Int      @default(0)
+  isAvailable     Boolean  @default(true)
+  
+  // Enhanced management fields
+  hireDate        DateTime @default(now())
+  commissionRate  Float    @default(0.5) // percentage as decimal (0.5 = 50%)
+  hourlyRate      Float?
+  certifications  String[] // Array of certification names/IDs
+  languages       String[] // Languages spoken
+  portfolio       String[] // Array of image URLs
+  socialMedia     Json? // Social media links as JSON
+  isActive        Boolean  @default(true)
+  
+  // Performance metrics
+  totalRevenue    Float    @default(0)
+  totalAppointments Int    @default(0)
+  cancelationRate Float    @default(0)
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  user         User          @relation(fields: [userId], references: [id])
+  userId       String        @unique
+  barbershop   Barbershop    @relation(fields: [barbershopId], references: [id])
+  barbershopId String
+  services     Service[]
+  appointments Appointment[]
+  schedules    Schedule[]
+  reviews      Review[]
+  waitlistEntries WaitlistEntry[]
+
+  @@map("barbers")
+}
+
+model Service {
+  id           String   @id @default(cuid())
+  name         String
+  description  String?
+  duration     Int // duration in minutes
+  price        Float
+  category     String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  barbershop   Barbershop    @relation(fields: [barbershopId], references: [id])
+  barbershopId String
+  barbers      Barber[]
+  appointments Appointment[]
+  waitlistEntries WaitlistEntry[]
+
+  @@map("services")
+}
+
+model Appointment {
+  id                String            @id @default(cuid())
+  date              DateTime
+  startTime         DateTime
+  endTime           DateTime
+  status            AppointmentStatus @default(PENDING)
+  notes             String?
+  totalPrice        Float
+  paymentStatus     PaymentStatus     @default(PENDING)
+  
+  // Guest booking support
+  isGuestBooking    Boolean           @default(false)
+  guestName         String?
+  guestEmail        String?
+  guestPhone        String?
+  
+  // Booking metadata
+  specialRequests   String?
+  reminderSent      Boolean           @default(false)
+  noShowCount       Int               @default(0)
+  rescheduleCount   Int               @default(0)
+  
+  // Recurring appointment support
+  recurringGroupId  String?
+  isRecurring       Boolean           @default(false)
+  recurringType     String? // 'daily', 'weekly', 'monthly'
+  recurringInterval Int?
+  recurringEndDate  DateTime?
+  
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  // Relations
+  customer      User?      @relation(fields: [customerId], references: [id])
+  customerId    String?
+  barber        Barber     @relation(fields: [barberId], references: [id])
+  barberId      String
+  service       Service    @relation(fields: [serviceId], references: [id])
+  serviceId     String
+  barbershop    Barbershop @relation(fields: [barbershopId], references: [id])
+  barbershopId  String
+  payment       Payment?
+  review        Review?
+  waitlist      WaitlistEntry[]
+
+  @@map("appointments")
+}
+
+model Schedule {
+  id        String   @id @default(cuid())
+  dayOfWeek Int // 0 = Sunday, 1 = Monday, etc.
+  startTime String // HH:mm format
+  endTime   String // HH:mm format
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  barber   Barber @relation(fields: [barberId], references: [id])
+  barberId String
+
+  @@unique([barberId, dayOfWeek])
+  @@map("schedules")
+}
+
+model Payment {
+  id            String        @id @default(cuid())
+  amount        Float
+  currency      String        @default("USD")
+  status        PaymentStatus @default(PENDING)
+  paymentMethod String?
+  stripePaymentIntentId String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  // Relations
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+  appointmentId String      @unique
+
+  @@map("payments")
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int // 1-5 stars
+  comment   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  customer      User        @relation(fields: [customerId], references: [id])
+  customerId    String
+  barber        Barber      @relation(fields: [barberId], references: [id])
+  barberId      String
+  barbershop    Barbershop  @relation(fields: [barbershopId], references: [id])
+  barbershopId  String
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+  appointmentId String      @unique
+
+  @@map("reviews")
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  title     String
+  message   String
+  type      String // 'appointment', 'reminder', 'promotion', etc.
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  // Relations
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  @@map("notifications")
+}
+
+model WaitlistEntry {
+  id           String   @id @default(cuid())
+  preferredDate DateTime
+  preferredStartTime DateTime
+  preferredEndTime   DateTime
+  
+  // Contact information for guest users
+  name         String?
+  email        String?
+  phone        String?
+  
+  // Preferences
+  flexibleTiming Boolean @default(false)
+  maxWaitDays    Int     @default(7)
+  
+  status       String   @default("ACTIVE") // ACTIVE, NOTIFIED, BOOKED, EXPIRED
+  notifiedAt   DateTime?
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  user         User?        @relation(fields: [userId], references: [id])
+  userId       String?
+  barber       Barber       @relation(fields: [barberId], references: [id])
+  barberId     String
+  service      Service      @relation(fields: [serviceId], references: [id])
+  serviceId    String
+  barbershop   Barbershop   @relation(fields: [barbershopId], references: [id])
+  barbershopId String
+  appointment  Appointment? @relation(fields: [appointmentId], references: [id])
+  appointmentId String?
+
+  @@map("waitlist_entries")
+}
+
+model BookingPreferences {
+  id                    String   @id @default(cuid())
+  preferredBarbers      String[] // Array of barber IDs
+  preferredServices     String[] // Array of service IDs
+  preferredTimeSlots    String[] // Array of time ranges like "09:00-12:00"
+  preferredDays         Int[]    // Array of day numbers (0=Sunday)
+  enableReminders       Boolean  @default(true)
+  reminderHours         Int      @default(24) // Hours before appointment
+  allowWaitlist         Boolean  @default(true)
+  maxTravelDistance     Float?   // In miles/km
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  // Relations
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique
+
+  @@map("booking_preferences")
+}
+
+model GuestUser {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  phone     String?
+  
+  // Booking history for guest users
+  totalBookings    Int     @default(0)
+  totalNoShows     Int     @default(0)
+  totalCancellations Int   @default(0)
+  averageRating    Float   @default(0)
+  
+  isBlacklisted    Boolean @default(false)
+  blacklistReason  String?
+  
+  // Marketing preferences
+  allowMarketing   Boolean @default(false)
+  preferredContact String  @default("email") // email, sms, both
+  
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("guest_users")
+}

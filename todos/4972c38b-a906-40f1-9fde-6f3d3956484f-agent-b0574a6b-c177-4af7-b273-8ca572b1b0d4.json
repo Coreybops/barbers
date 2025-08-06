@@ -1,0 +1,62 @@
+[
+  {
+    "content": "Review project structure and package.json configurations",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Analyze backend TypeScript code for security vulnerabilities",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Review authentication and authorization implementation",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Examine database schema and queries for optimization",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Review frontend React components for performance and security",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Analyze API endpoints for efficiency and validation",
+    "status": "completed",
+    "priority": "high",
+    "id": "6"
+  },
+  {
+    "content": "Review error handling and logging throughout the application",
+    "status": "completed",
+    "priority": "medium",
+    "id": "7"
+  },
+  {
+    "content": "Check Docker and deployment configurations",
+    "status": "completed",
+    "priority": "medium",
+    "id": "8"
+  },
+  {
+    "content": "Review testing setup and coverage",
+    "status": "completed",
+    "priority": "medium",
+    "id": "9"
+  },
+  {
+    "content": "Provide optimization recommendations and fixes",
+    "status": "completed",
+    "priority": "high",
+    "id": "10"
+  }
+]

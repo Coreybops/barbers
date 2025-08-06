@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Create new folder for separated files",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Extract CSS from HTML file into separate stylesheet",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Extract JavaScript from HTML file into separate JS file",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Create clean HTML file with links to external CSS and JS",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Test that the separated files work seamlessly together",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  }
+]

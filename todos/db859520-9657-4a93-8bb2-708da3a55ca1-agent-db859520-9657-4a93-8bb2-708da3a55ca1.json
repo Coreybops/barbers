@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Modify smart case function to analyze all fields together",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update event handling to convert entire document at once",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Test document-wide case conversion",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  }
+]

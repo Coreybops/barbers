@@ -1,0 +1,56 @@
+[
+  {
+    "content": "Create root package.json and workspace configuration",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Set up backend folder structure with Express server, TypeScript config, and package.json",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Create Prisma schema with all required models (users, barbershops, barbers, services, appointments)",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Set up frontend folder structure with React, TypeScript, Vite configuration",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Create basic Express server with authentication middleware",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Set up React app with routing and basic components",
+    "status": "completed",
+    "priority": "medium",
+    "id": "6"
+  },
+  {
+    "content": "Create environment configuration files for both frontend and backend",
+    "status": "completed",
+    "priority": "medium",
+    "id": "7"
+  },
+  {
+    "content": "Add ESLint and Prettier configurations for code quality",
+    "status": "completed",
+    "priority": "medium",
+    "id": "8"
+  },
+  {
+    "content": "Create comprehensive README with setup instructions",
+    "status": "completed",
+    "priority": "low",
+    "id": "9"
+  }
+]

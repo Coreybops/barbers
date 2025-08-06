@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Update JavaScript logic - move 6a,6b,6c pathway from Q6 YES to Q5 NO",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Revert Q6 YES to original direct outcome",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Update CLAUDE.md to reflect correct pathway",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  }
+]

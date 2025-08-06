@@ -1,0 +1,104 @@
+[
+  {
+    "content": "Enhance Prisma schema with barber management fields (certifications, hire date, commission rate, etc.)",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Create barber CRUD API routes with validation and error handling",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Add image upload functionality for barber photos using multer middleware",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Create barber service assignment API endpoints",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Build barber availability/schedule management API routes",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Add barber search and filtering API endpoints",
+    "status": "completed",
+    "priority": "medium",
+    "id": "6"
+  },
+  {
+    "content": "Create barber performance metrics API endpoints",
+    "status": "completed",
+    "priority": "low",
+    "id": "7"
+  },
+  {
+    "content": "Build barber management dashboard frontend component",
+    "status": "completed",
+    "priority": "high",
+    "id": "8"
+  },
+  {
+    "content": "Create add/edit barber forms with image upload UI",
+    "status": "completed",
+    "priority": "high",
+    "id": "9"
+  },
+  {
+    "content": "Build barber profile cards and list view components",
+    "status": "completed",
+    "priority": "medium",
+    "id": "10"
+  },
+  {
+    "content": "Create service assignment interface for barbers",
+    "status": "completed",
+    "priority": "medium",
+    "id": "11"
+  },
+  {
+    "content": "Build availability schedule management UI",
+    "status": "completed",
+    "priority": "medium",
+    "id": "12"
+  },
+  {
+    "content": "Add search and filter functionality for barber management",
+    "status": "completed",
+    "priority": "medium",
+    "id": "13"
+  },
+  {
+    "content": "Create barber performance metrics dashboard",
+    "status": "completed",
+    "priority": "low",
+    "id": "14"
+  },
+  {
+    "content": "Update main App component to include barber management route",
+    "status": "completed",
+    "priority": "high",
+    "id": "15"
+  },
+  {
+    "content": "Add navigation link to barber management in navbar",
+    "status": "completed",
+    "priority": "medium",
+    "id": "16"
+  },
+  {
+    "content": "Test the complete barber management system",
+    "status": "completed",
+    "priority": "high",
+    "id": "17"
+  }
+]

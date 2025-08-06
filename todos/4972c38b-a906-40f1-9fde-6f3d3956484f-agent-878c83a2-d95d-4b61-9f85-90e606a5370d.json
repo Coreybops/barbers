@@ -1,0 +1,68 @@
+[
+  {
+    "content": "Set up backend testing infrastructure - Jest configuration, test database setup, and test helpers",
+    "status": "completed",
+    "priority": "high",
+    "id": "backend-test-setup"
+  },
+  {
+    "content": "Create test fixtures, mock data, and database seeding utilities",
+    "status": "completed",
+    "priority": "medium",
+    "id": "backend-fixtures-mocks"
+  },
+  {
+    "content": "Create unit tests for API endpoints, controllers, and business logic",
+    "status": "completed",
+    "priority": "high",
+    "id": "backend-unit-tests"
+  },
+  {
+    "content": "Create integration tests for database operations and authentication",
+    "status": "completed",
+    "priority": "high",
+    "id": "backend-integration-tests"
+  },
+  {
+    "content": "Set up frontend testing infrastructure - Vitest configuration, React Testing Library, MSW setup",
+    "status": "completed",
+    "priority": "high",
+    "id": "frontend-test-setup"
+  },
+  {
+    "content": "Create unit tests for React components with React Testing Library",
+    "status": "completed",
+    "priority": "high",
+    "id": "frontend-component-tests"
+  },
+  {
+    "content": "Create tests for Zustand stores and state management",
+    "status": "completed",
+    "priority": "medium",
+    "id": "frontend-store-tests"
+  },
+  {
+    "content": "Create integration tests for user flows and API interactions",
+    "status": "pending",
+    "priority": "medium",
+    "id": "frontend-integration-tests"
+  },
+  {
+    "content": "Set up Playwright for E2E testing with test configuration",
+    "status": "completed",
+    "priority": "medium",
+    "id": "e2e-setup"
+  },
+  {
+    "content": "Create E2E tests for booking flow, authentication, and calendar interactions",
+    "status": "completed",
+    "priority": "medium",
+    "id": "e2e-critical-flows"
+  },
+  {
+    "content": "Update package.json scripts and create CI-ready test commands with coverage",
+    "status": "completed",
+    "priority": "medium",
+    "id": "test-scripts-ci"
+  }
+]

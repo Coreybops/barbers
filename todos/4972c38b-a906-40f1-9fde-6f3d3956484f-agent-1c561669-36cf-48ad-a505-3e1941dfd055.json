@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Analyze and recommend optimal technology stack based on 2025 best practices",
+    "status": "completed",
+    "priority": "high",
+    "id": "tech-stack-analysis"
+  },
+  {
+    "content": "Design comprehensive database schema for barber booking system",
+    "status": "completed",
+    "priority": "high",
+    "id": "database-schema-design"
+  },
+  {
+    "content": "Define RESTful API structure and endpoints",
+    "status": "completed",
+    "priority": "high",
+    "id": "api-architecture-design"
+  },
+  {
+    "content": "Plan authentication and authorization strategy",
+    "status": "completed",
+    "priority": "high",
+    "id": "authentication-strategy"
+  },
+  {
+    "content": "Define file/folder structure and component architecture",
+    "status": "completed",
+    "priority": "medium",
+    "id": "project-structure"
+  },
+  {
+    "content": "Identify potential bottlenecks and scaling strategies",
+    "status": "completed",
+    "priority": "medium",
+    "id": "scaling-considerations"
+  }
+]

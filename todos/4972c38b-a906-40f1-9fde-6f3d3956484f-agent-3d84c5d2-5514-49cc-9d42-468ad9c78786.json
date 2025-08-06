@@ -1,0 +1,62 @@
+[
+  {
+    "content": "Create comprehensive booking backend API with availability checking and conflict resolution",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Implement guest booking endpoints and guest user management system",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Create public booking page with barbershop search and service selection",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Build multi-step booking wizard with date/time selection and real-time availability",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Implement booking confirmation system with email/SMS notifications",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Create customer booking history and management interface",
+    "status": "completed",
+    "priority": "medium",
+    "id": "6"
+  },
+  {
+    "content": "Build waitlist functionality with automatic notifications",
+    "status": "completed",
+    "priority": "medium",
+    "id": "7"
+  },
+  {
+    "content": "Implement booking cancellation and rescheduling workflows",
+    "status": "completed",
+    "priority": "medium",
+    "id": "8"
+  },
+  {
+    "content": "Add recurring appointment booking functionality",
+    "status": "completed",
+    "priority": "low",
+    "id": "9"
+  },
+  {
+    "content": "Create review and rating system post-appointment",
+    "status": "completed",
+    "priority": "low",
+    "id": "10"
+  }
+]
