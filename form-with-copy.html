@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Form Generator</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: Georgia, serif;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .copy-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .copy-btn:hover {
+            background-color: #45a049;
+        }
+
+        .clear-btn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .clear-btn:hover {
+            background-color: #da190b;
+        }
+
+        .output-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fafafa;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .output-section.show {
+            display: block;
+        }
+
+        .output-text {
+            line-height: 1.8;
+            text-align: justify;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .success-message {
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Story Generator Form</h1>
+
+        <form id="storyForm">
+            <div class="form-group">
+                <label for="name">What is your name?</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">How old are you?</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Where do you live?</label>
+                <input type="text" id="location" name="location" placeholder="Enter your city or town" required>
+            </div>
+
+            <div class="form-group">
+                <label for="occupation">What is your occupation?</label>
+                <input type="text" id="occupation" name="occupation" placeholder="Enter your occupation" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hobby">What is your favorite hobby?</label>
+                <input type="text" id="hobby" name="hobby" placeholder="Enter your favorite hobby" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dream">What is your biggest dream?</label>
+                <textarea id="dream" name="dream" placeholder="Describe your biggest dream" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="achievement">What is your proudest achievement?</label>
+                <textarea id="achievement" name="achievement" placeholder="Describe your proudest achievement" required></textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="copy-btn" onclick="generateAndCopy()">Generate & Copy</button>
+                <button type="button" class="clear-btn" onclick="clearForm()">Clear Form</button>
+            </div>
+        </form>
+
+        <div class="success-message" id="successMessage">
+            ✓ Story copied to clipboard!
+        </div>
+
+        <div class="output-section" id="outputSection">
+            <h3>Generated Story:</h3>
+            <p class="output-text" id="outputText"></p>
+        </div>
+    </div>
+
+    <script>
+        function generateAndCopy() {
+            // Get form values
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const location = document.getElementById('location').value;
+            const occupation = document.getElementById('occupation').value;
+            const hobby = document.getElementById('hobby').value;
+            const dream = document.getElementById('dream').value;
+            const achievement = document.getElementById('achievement').value;
+
+            // Check if all fields are filled
+            if (!name || !age || !location || !occupation || !hobby || !dream || !achievement) {
+                alert('Please fill in all fields before generating the story.');
+                return;
+            }
+
+            // Generate paragraph in book-like format
+            const paragraph = `${name}, a ${age}-year-old resident of ${location}, has lived a life marked by dedication and passion. Working as a ${occupation}, ${name} has found purpose in the daily routines of professional life. Yet beyond the demands of work, there exists a profound love for ${hobby}, an activity that brings both joy and fulfillment. When asked about aspirations, ${name} speaks with conviction about a deeply held dream: ${dream}. This vision for the future is matched only by the pride felt for past accomplishments. Among many moments worth celebrating, one stands out as particularly meaningful: ${achievement}. These experiences, woven together, form the narrative of ${name}'s journey—a story still being written, chapter by chapter.`;
+
+            // Display the output
+            const outputText = document.getElementById('outputText');
+            const outputSection = document.getElementById('outputSection');
+            const successMessage = document.getElementById('successMessage');
+
+            outputText.textContent = paragraph;
+            outputSection.classList.add('show');
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(paragraph).then(() => {
+                // Show success message
+                successMessage.classList.add('show');
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 3000);
+            }).catch(err => {
+                alert('Failed to copy to clipboard: ' + err);
+            });
+        }
+
+        function clearForm() {
+            document.getElementById('storyForm').reset();
+            document.getElementById('outputSection').classList.remove('show');
+            document.getElementById('successMessage').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
